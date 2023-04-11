@@ -9,6 +9,7 @@ public class PlayerCheck : MonoBehaviour
         if (collision.tag == "Player")
         {
             Event.Invoke();
+            ScoreController.ScoreUp();
         }
     }
 }

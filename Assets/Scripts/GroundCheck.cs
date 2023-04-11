@@ -3,7 +3,6 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     public static bool isGround;
-    [SerializeField] private string _tagCollision;
 
     private void Start()
     {
@@ -11,7 +10,7 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == _tagCollision)
+        if (collision.tag == "Ground")
         {
             isGround=true;
         }
@@ -19,7 +18,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == _tagCollision)
+        if (collision.tag == "Ground")
         {
             isGround = false;
         }

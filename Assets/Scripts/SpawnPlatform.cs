@@ -24,6 +24,7 @@ public class SpawnPlatform : MonoBehaviour
 
         GameObject randomPlatformPrefab = _platformPrefabs[Random.Range(0, _platformPrefabs.Length)];
         Instantiate(randomPlatformPrefab, randomPointSpawn.position, Quaternion.identity);
+        
     }
 
     private void Update()
