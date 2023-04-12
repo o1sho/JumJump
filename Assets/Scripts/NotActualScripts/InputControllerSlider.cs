@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class InputController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class InputControllerSlider : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public UnityEvent EventUp;
     public UnityEvent EventDown;
