@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
 
     public float jumpForse;
+
+    [SerializeField] ParticleSystem[] _particlesLanded;
 
     private void Awake()
     {
@@ -43,6 +44,12 @@ public class PlayerController : MonoBehaviour
         {
             Landed.Invoke();
             Debug.Log("Landed");
+
+            // Play Anim
+            for (int i = 0; i < _particlesLanded.Length; i++) 
+            {
+                _particlesLanded[i].Play();
+            }
         }
 
         if (collision.gameObject.tag == "Death")
