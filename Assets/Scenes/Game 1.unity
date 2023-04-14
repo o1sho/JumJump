@@ -1112,11 +1112,16 @@ MonoBehaviour:
   _spawnPoints:
   - {fileID: 1619702688}
   - {fileID: 51504436}
-  _platformPrefabs:
-  - {fileID: 2140041570746956074, guid: 2034cb33d8885584b837fb21178b2cb2, type: 3}
-  - {fileID: 2140041570746956074, guid: 0cdd12eb92f9cf34e896a0cd52e3a874, type: 3}
-  - {fileID: 2140041570746956074, guid: 892822555cb8cda44b41a824080f5ee3, type: 3}
   _yOffset: 0.5
+  platforms:
+  - platformPrefabs: {fileID: 2140041570746956074, guid: 892822555cb8cda44b41a824080f5ee3, type: 3}
+    spawnChance: 0.3
+  - platformPrefabs: {fileID: 2140041570746956074, guid: 0cdd12eb92f9cf34e896a0cd52e3a874, type: 3}
+    spawnChance: 0.35
+  - platformPrefabs: {fileID: 2140041570746956074, guid: 2034cb33d8885584b837fb21178b2cb2, type: 3}
+    spawnChance: 0.3
+  - platformPrefabs: {fileID: 2140041570746956074, guid: 88e2b5d7cd11993449116c600dfcb434, type: 3}
+    spawnChance: 0.5
 --- !u!1 &731103343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,7 +1922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1983838737
 RectTransform:
   m_ObjectHideFlags: 0

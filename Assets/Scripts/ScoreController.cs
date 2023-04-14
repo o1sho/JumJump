@@ -27,6 +27,11 @@ public class ScoreController : MonoBehaviour
         score++;
     }
 
+    public static void ScoreSuperUp()
+    {
+        score*=2;
+    }
+
     public void SaveMaxScore()
     {
         PlayerPrefs.SetInt("MaxScore", _maxScore);
