@@ -20,6 +20,9 @@ public class SpawnPlatform : MonoBehaviour
     public SpawnablePlatform[] platforms;
     //////
 
+    private GameObject _spawnedPlatform;
+    [SerializeField] GameObject platformStartPrefab;
+
     private void Start()
     {
         //Spawn();
@@ -40,7 +43,7 @@ public class SpawnPlatform : MonoBehaviour
         {
             if (spawnChance < platform.spawnChance)
             {
-                GameObject obstacle = Instantiate(platform.platformPrefabs, randomPointSpawn.position, Quaternion.identity);
+                _spawnedPlatform = Instantiate(platform.platformPrefabs, randomPointSpawn.position, Quaternion.identity);
                 break;
             }
 
@@ -51,6 +54,12 @@ public class SpawnPlatform : MonoBehaviour
         //GameObject randomPlatformPrefab = _platformPrefabs[Random.Range(0, _platformPrefabs.Length)];
         //Instantiate(randomPlatformPrefab, randomPointSpawn.position, Quaternion.identity);
         
+    }
+
+    public void SpawnAfterGameOver()
+    {
+        Destroy(_spawnedPlatform);
+        Instantiate(platformStartPrefab, new Vector3(0, (float)_lastPosY, 0), Quaternion.identity);
     }
 
     private void Update()

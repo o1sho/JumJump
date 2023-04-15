@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(Vector2.down * jumpForse * 2, ForceMode2D.Impulse);
     }
 
+    public void SetDefaultPos()
+    {
+        gameObject.transform.position += new Vector3(0,2,0);
+    }
+
     private void Update()
     {
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) Jump();
