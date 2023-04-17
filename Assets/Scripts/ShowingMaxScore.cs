@@ -11,6 +11,6 @@ public class ShowingMaxScore : MonoBehaviour
     private void Start()
     {
         var maxScore = PlayerPrefs.GetInt("MaxScore");
-        _maxScoreText.text = "Max score: " + maxScore;
+        _maxScoreText.text = maxScore.ToString();
     }
 }

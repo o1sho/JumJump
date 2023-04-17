@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] public Button continueButton;
+    [SerializeField] public int continuePriseCoins;
 
     private void OnEnable()
     {
@@ -11,13 +12,13 @@ public class GameOver : MonoBehaviour
         if (CoinsController.coins >= 30)
         {
             continueButton.interactable = true;
-        } else if (CoinsController.coins < 30) continueButton.interactable = false;
+        } else if (CoinsController.coins < continuePriseCoins) continueButton.interactable = false;
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1f;
-        CoinsController.coins -= 30;
+        CoinsController.coins -= continuePriseCoins;
     }
 
 

@@ -181,8 +181,8 @@ GameObject:
   - component: {fileID: 2140041570746956072}
   - component: {fileID: 2140041570746956075}
   - component: {fileID: 5198453164105490031}
-  - component: {fileID: 5839643492556321139}
   - component: {fileID: 4640719353538357467}
+  - component: {fileID: 584994702499903466}
   m_Layer: 0
   m_Name: Platform 1
   m_TagString: Ground
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1254902, g: 0.09411765, b: 0.12156863, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -301,18 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
---- !u!114 &5839643492556321139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140041570746956074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362eade37e0899041b4852bff2287eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4640719353538357467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +311,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8716266ac1b6406409978acc35f5ebe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &584994702499903466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140041570746956074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d608b8ff6c323a54f9d723aa5b880a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2696130001631299891

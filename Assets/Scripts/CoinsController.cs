@@ -13,7 +13,7 @@ public class CoinsController : MonoBehaviour
 
     private void Update()
     {
-        _coinsText.text = "coins: " + coins.ToString();
+        _coinsText.text = coins.ToString();
 
         if (Input.GetKeyDown(KeyCode.C)) coins += 100;
     }
