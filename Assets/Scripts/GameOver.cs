@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0f;
-        if (CoinsController.coins >= 30)
+        if (CoinsController.coins >= continuePriseCoins)
         {
             continueButton.interactable = true;
         } else if (CoinsController.coins < continuePriseCoins) continueButton.interactable = false;

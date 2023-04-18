@@ -7,6 +7,16 @@ public class MovePlatform : MonoBehaviour
     private int _direction;
     public float _moveSpeed;
 
+    private void OnEnable()
+    {
+        PlayerCheckOnPlatform.stopMove += StopMove;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCheckOnPlatform.stopMove -= StopMove;
+    }
+
     private void Awake()
     {
         _direction = transform.position.x < 0 ? 1 : -1;
@@ -27,5 +37,8 @@ public class MovePlatform : MonoBehaviour
         transform.position += Vector3.right * _direction * speed * Time.deltaTime;
     }
 
-
+    private void StopMove()
+    {
+        _direction= 0;
+    }
 }

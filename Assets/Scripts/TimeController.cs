@@ -20,4 +20,9 @@ public class TimeController : MonoBehaviour
     {
         _gameSpeed += _speedIncrease * Time.deltaTime;
     }
+
+    public void SetDefaulttGameSpeed()
+    {
+        _gameSpeed = 6f;
+    }
 }

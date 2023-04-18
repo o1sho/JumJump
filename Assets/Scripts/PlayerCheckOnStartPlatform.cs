@@ -1,14 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerCheck : MonoBehaviour
+public class PlayerCheckOnStartPlatform : MonoBehaviour
 {
-    public UnityEvent Event;
+    public static Action spawnNewPlatform;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            Event.Invoke();
+            spawnNewPlatform?.Invoke();
         }
     }
 }

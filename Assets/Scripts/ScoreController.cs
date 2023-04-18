@@ -8,6 +8,16 @@ public class ScoreController : MonoBehaviour
     public static int score;
     private int _maxScore;
 
+    private void OnEnable()
+    {
+        PlayerCheckOnPlatform.scoreUp += ScoreUp;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCheckOnPlatform.scoreUp -= ScoreUp;
+    }
+
     private void Start()
     {
         _maxScore = PlayerPrefs.GetInt("MaxScore");

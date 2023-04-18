@@ -3,6 +3,8 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     public static bool isGround;
+    [SerializeField] private Animator _anim;
+
 
     private void Start()
     {
@@ -13,6 +15,7 @@ public class GroundCheck : MonoBehaviour
         if (collision.tag == "Ground")
         {
             isGround=true;
+            _anim.SetBool("isGround", isGround);
         }
     }
 
@@ -21,6 +24,7 @@ public class GroundCheck : MonoBehaviour
         if (collision.tag == "Ground")
         {
             isGround = false;
+            _anim.SetBool("isGround", isGround);
         }
     }
 }

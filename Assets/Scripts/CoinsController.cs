@@ -6,6 +6,16 @@ public class CoinsController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinsText;
     public static int coins;
 
+    private void OnEnable()
+    {
+        PlayerCheckOnCoin.coinAdd += AddCoin;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCheckOnCoin.coinAdd -= AddCoin;
+    }
+
     private void Start()
     {
         coins = PlayerPrefs.GetInt("Coins");

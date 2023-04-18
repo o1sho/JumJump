@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    public UnityEvent Landed;
     public UnityEvent Death;
 
     private Rigidbody2D _rb;
@@ -12,10 +11,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForse;
 
     [SerializeField] ParticleSystem[] _particlesLanded;
+    private Animator _anim;
 
     private void Awake()
     {
         _rb= GetComponent<Rigidbody2D>();
+        _anim= GetComponent<Animator>();    
     }
 
     public void Jump()
@@ -29,12 +30,15 @@ public class PlayerController : MonoBehaviour
 
     public void SetDefaultPos()
     {
-        gameObject.transform.position += new Vector3(0,2,0);
+        _rb.velocity = new Vector3(0, 0, 0);
+        gameObject.transform.position += new Vector3(0,3,0);
+
     }
 
     private void Update()
     {
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) Jump();
+        _anim.SetFloat("velY", _rb.velocity.y);
     }
 
     /* public void Down()
@@ -47,7 +51,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Landed.Invoke();
             Debug.Log("Landed");
 
             // Play Anim

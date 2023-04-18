@@ -23,9 +23,16 @@ public class SpawnPlatform : MonoBehaviour
     private GameObject _spawnedPlatform;
     [SerializeField] GameObject platformStartPrefab;
 
-    private void Start()
+    private void OnEnable()
     {
-        //Spawn();
+        PlayerCheckOnPlatform.spawnNewPlatform += Spawn;
+        PlayerCheckOnStartPlatform.spawnNewPlatform += Spawn;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCheckOnPlatform.spawnNewPlatform -= Spawn;
+        PlayerCheckOnStartPlatform.spawnNewPlatform -= Spawn;
     }
 
     public void Spawn()
