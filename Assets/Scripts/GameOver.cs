@@ -20,6 +20,4 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 1f;
         CoinsController.coins -= continuePriseCoins;
     }
-
-
 }

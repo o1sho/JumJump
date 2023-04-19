@@ -9,11 +9,13 @@ public class CoinsController : MonoBehaviour
     private void OnEnable()
     {
         PlayerCheckOnCoin.coinAdd += AddCoin;
+        PlayerController.saveEarnedCoins += SaveEarnedCoins;
     }
 
     private void OnDisable()
     {
         PlayerCheckOnCoin.coinAdd -= AddCoin;
+        PlayerController.saveEarnedCoins -= SaveEarnedCoins;
     }
 
     private void Start()

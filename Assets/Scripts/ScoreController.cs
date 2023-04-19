@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,11 +12,15 @@ public class ScoreController : MonoBehaviour
     private void OnEnable()
     {
         PlayerCheckOnPlatform.scoreUp += ScoreUp;
+        PlayerCheckOnPlatform.scoreSuperUp += ScoreSuperUp;
+        PlayerController.saveMaxScore += SaveMaxScore;
     }
 
     private void OnDisable()
     {
         PlayerCheckOnPlatform.scoreUp -= ScoreUp;
+        PlayerCheckOnPlatform.scoreSuperUp -= ScoreSuperUp;
+        PlayerController.saveMaxScore -= SaveMaxScore;
     }
 
     private void Start()

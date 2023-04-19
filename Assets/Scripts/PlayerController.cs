@@ -1,30 +1,52 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    public UnityEvent Death;
-
     private Rigidbody2D _rb;
+    private SpriteRenderer _spriteRenderer;
 
     public float jumpForse;
+    private GroundCheck groundCheck;
 
     [SerializeField] ParticleSystem[] _particlesLanded;
     private Animator _anim;
 
+    //Actions
+    public static Action saveMaxScore;
+    public static Action saveEarnedCoins;
+    public static Action isGameOver;
+
+    private void OnEnable()
+    {
+        MovePlatform.setLeftPlayer += SetLeftSptire;
+        MovePlatform.setRightPlayer += SetRightSptire;
+        GameContinue.setDefaultPos += SetDefaultPos;
+    }
+
+    private void OnDisable()
+    {
+        MovePlatform.setLeftPlayer -= SetLeftSptire;
+        MovePlatform.setRightPlayer -= SetRightSptire;
+        GameContinue.setDefaultPos -= SetDefaultPos;
+    }
+
     private void Awake()
     {
         _rb= GetComponent<Rigidbody2D>();
-        _anim= GetComponent<Animator>();    
+        _anim= GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        groundCheck = GetComponentInChildren<GroundCheck>();
     }
 
     public void Jump()
     {
-        if (GroundCheck.isGround)
+        if (groundCheck.isGround)
         _rb.AddForce(Vector2.up * jumpForse, ForceMode2D.Impulse);
 
-        if (!GroundCheck.isGround)
+        if (!groundCheck.isGround)
         _rb.AddForce(Vector2.down * jumpForse * 2, ForceMode2D.Impulse);
     }
 
@@ -33,6 +55,15 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector3(0, 0, 0);
         gameObject.transform.position += new Vector3(0,3,0);
 
+    }
+
+    public void SetRightSptire()
+    {
+        _spriteRenderer.flipX = false;
+    }
+    public void SetLeftSptire()
+    {
+        _spriteRenderer.flipX = true;
     }
 
     private void Update()
@@ -62,10 +93,10 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Death")
         {
-            Death.Invoke();
+            saveMaxScore?.Invoke();
+            saveEarnedCoins?.Invoke();
+            isGameOver?.Invoke();
             Debug.Log("Death");
         }
-
     }
-
 }

@@ -10,6 +10,7 @@ public class PlayerCheckOnStartPlatform : MonoBehaviour
         if (collision.tag == "Player")
         {
             spawnNewPlatform?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }

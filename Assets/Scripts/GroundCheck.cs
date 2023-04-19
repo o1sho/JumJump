@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public static bool isGround;
+    public bool isGround;
     [SerializeField] private Animator _anim;
 
 

@@ -9,6 +9,8 @@ TagManager:
   - StartGround
   - RedP
   - BlueP
+  - 2xPlatform
+  - DefaultPlatform
   layers:
   - Default
   - TransparentFX

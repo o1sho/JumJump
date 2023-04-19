@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class MovePlatform : MonoBehaviour
 {
     private int _direction;
     public float _moveSpeed;
+
+    public static Action setRightPlayer;
+    public static Action setLeftPlayer;
 
     private void OnEnable()
     {
@@ -24,11 +28,10 @@ public class MovePlatform : MonoBehaviour
 
     private void Start()
     {
-        var player = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         if (_direction == 1)
         {
-            player.flipX= true;
-        } else if (_direction == -1) player.flipX= false;
+            setLeftPlayer?.Invoke();
+        } else if (_direction == -1) setRightPlayer?.Invoke();
     }
 
     private void Update()
