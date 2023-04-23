@@ -13,7 +13,7 @@ public class SelectCharacterController : MonoBehaviour
     public Characters[] characters;
 
     //private List<int> numberOfCharacters = new List<int>(); 
-    [SerializeField] private int idActiveCharacter;
+    [SerializeField] public int idActiveCharacter;
 
     private void Start()
     {
@@ -21,29 +21,35 @@ public class SelectCharacterController : MonoBehaviour
 
         for (int i = 0; i < characters.Length; i++)
         {
-            if (characters[i].character.activeSelf) PlayerPrefs.SetInt("idActiveCharacter", i);
+            if (i == PlayerPrefs.GetInt("idActiveCharacter"))
+            {
+                characters[i].character.SetActive(true);
+                idActiveCharacter = i;
+            }
+            else characters[i].character.SetActive(false);
         }
 
-        idActiveCharacter = PlayerPrefs.GetInt("idActiveCharacter");
+
+        // idActiveCharacter = PlayerPrefs.GetInt("idActiveCharacter");
         Debug.Log("Выбран персонаж: " + PlayerPrefs.GetInt("idActiveCharacter"));
         Debug.Log("Всего персонажей: " + characters.Length);
     }
 
     public void SelectRight()
     {
-        if (idActiveCharacter < characters.Length)
+        if (idActiveCharacter < characters.Length - 1)
         {
             for (int i = 0; i < characters.Length; i++)
             {
                 if (i == idActiveCharacter)
                 {
-                    idActiveCharacter =+ 1;
-                    characters[i].character.SetActive(false);
-                    characters[idActiveCharacter].character.SetActive(true);
-                    PlayerPrefs.SetInt("idActiveCharacter", idActiveCharacter);
-                    Debug.Log("Выбран персонаж: " + PlayerPrefs.GetInt("idActiveCharacter"));
+
                 }
             }
+            characters[idActiveCharacter].character.SetActive(false);
+            idActiveCharacter++;
+            characters[idActiveCharacter].character.SetActive(true);
+            Debug.Log("pukpuk");
         }
     }
 
@@ -58,11 +64,29 @@ public class SelectCharacterController : MonoBehaviour
                     idActiveCharacter --;
                     characters[i].character.SetActive(false);
                     characters[idActiveCharacter].character.SetActive(true);
-                    PlayerPrefs.SetInt("idActiveCharacter", idActiveCharacter);
-                    Debug.Log("Выбран персонаж: " + PlayerPrefs.GetInt("idActiveCharacter"));
                 }
             }
         }
+    }
 
+    public void SaveIdActiveCharacter()
+    {
+        PlayerPrefs.SetInt("idActiveCharacter", idActiveCharacter);
+        Debug.Log("Выбран персонаж: " + PlayerPrefs.GetInt("idActiveCharacter"));
+    }
+
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.SetString("PlayerBuyed0", "NotBuyed");
+            PlayerPrefs.SetString("PlayerBuyed1", "NotBuyed");
+            PlayerPrefs.SetString("PlayerBuyed" + idActiveCharacter, "NotBuyed");
+            PlayerPrefs.SetInt("idActiveCharacter", 0);
+        }
+
+        
     }
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System;
 
 public class CoinsController : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class CoinsController : MonoBehaviour
     {
         PlayerCheckOnCoin.coinAdd += AddCoin;
         PlayerController.saveEarnedCoins += SaveEarnedCoins;
+        BuyNewPlayerController.saveEarnedCoins += SaveEarnedCoins;
     }
 
     private void OnDisable()
     {
         PlayerCheckOnCoin.coinAdd -= AddCoin;
         PlayerController.saveEarnedCoins -= SaveEarnedCoins;
+        BuyNewPlayerController.saveEarnedCoins -= SaveEarnedCoins;
     }
 
     private void Start()

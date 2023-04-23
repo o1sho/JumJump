@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Debug.Log("Landed");
+            saveMaxScore?.Invoke();
+            saveEarnedCoins?.Invoke();
 
             // Play Anim
             for (int i = 0; i < _particlesLanded.Length; i++) 

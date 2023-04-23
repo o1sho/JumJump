@@ -120,7 +120,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 73435c5b12605434084973b9f75d6a93, type: 3}
   - {fileID: 21300000, guid: c2bb449f316b5e346aaaa710b20d1cf1, type: 3}
   - {fileID: 21300000, guid: a485249455c8ccd4792d9c1730440986, type: 3}
-  _timeBetweenFrames: 0.14
+  _timeBetweenFrames: 0.12
 --- !u!114 &8922893591154600205
 MonoBehaviour:
   m_ObjectHideFlags: 0
