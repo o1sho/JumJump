@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1565fc2e52991a54b94d93b6ce1a048d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGround: 0
   _anim: {fileID: 3522677624676328984}
 --- !u!61 &3522677624003326916
 BoxCollider2D:
@@ -5166,49 +5167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233883a88e1867f448583400e537f608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Death:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ScoreController, Assembly-CSharp
-        m_MethodName: SaveMaxScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoinsController, Assembly-CSharp
-        m_MethodName: SaveEarnedCoins
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   jumpForse: 7
   _particlesLanded:
   - {fileID: 3522677624362099370}
   - {fileID: 3522677625496791246}
+  _sJump: {fileID: 0}
+  _sFall: {fileID: 0}
+  _sGameOver: {fileID: 0}
 --- !u!95 &3522677624676328984
 Animator:
   serializedVersion: 5
@@ -5335,21 +5300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c251cb891f84e2d4e8ba6a8294f6d242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   triggerTag: Ground
 --- !u!1 &3522677625425292315
 GameObject:
@@ -10365,19 +10315,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c251cb891f84e2d4e8ba6a8294f6d242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   triggerTag: Ground

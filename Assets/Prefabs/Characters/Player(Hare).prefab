@@ -5171,6 +5171,9 @@ MonoBehaviour:
   _particlesLanded:
   - {fileID: 3522677624362099370}
   - {fileID: 3522677625496791246}
+  _sJump: {fileID: 0}
+  _sFall: {fileID: 0}
+  _sGameOver: {fileID: 0}
 --- !u!95 &3522677624676328984
 Animator:
   serializedVersion: 5

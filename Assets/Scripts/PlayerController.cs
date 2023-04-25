@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     public static Action saveEarnedCoins;
     public static Action isGameOver;
 
+    //ActionSounds
+    public static Action soundJump;
+    public static Action soundFall;
+    public static Action soundDeath;
+
     private void OnEnable()
     {
         MovePlatform.setLeftPlayer += SetLeftSptire;
@@ -44,7 +49,10 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         if (groundCheck.isGround)
-        _rb.AddForce(Vector2.up * jumpForse, ForceMode2D.Impulse);
+        {
+            _rb.AddForce(Vector2.up * jumpForse, ForceMode2D.Impulse);
+            soundJump?.Invoke();
+        }
 
         if (!groundCheck.isGround)
         _rb.AddForce(Vector2.down * jumpForse * 2, ForceMode2D.Impulse);
@@ -70,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) Jump();
         _anim.SetFloat("velY", _rb.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
     }
 
     /* public void Down()
@@ -91,6 +101,9 @@ public class PlayerController : MonoBehaviour
             {
                 _particlesLanded[i].Play();
             }
+
+            // play Sound
+            soundFall?.Invoke();
         }
 
         if (collision.gameObject.tag == "Death")
@@ -99,6 +112,8 @@ public class PlayerController : MonoBehaviour
             saveEarnedCoins?.Invoke();
             isGameOver?.Invoke();
             Debug.Log("Death");
+
+            soundDeath?.Invoke();   
         }
     }
 }
